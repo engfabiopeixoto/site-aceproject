@@ -1,0 +1,47 @@
+/* Pulso: borda verde com halo que pulsa levemente. Aparece no item ativo do menu e
+   no elemento sob o mouse ou em foco (cards, barra deslizante e botões). */
+@keyframes pulsa {
+  0%, 100% { box-shadow: 0 0 0 0 var(--pulso-cor); }
+  50% { box-shadow: 0 0 0 7px rgba(109, 179, 132, 0); }
+}
+
+header nav a.ativo {
+  border-color: var(--verde);
+  color: var(--verde);
+  opacity: 1;
+  animation: pulsa 2.4s ease-in-out infinite;
+}
+
+.obra:hover, .obra:focus-visible,
+.comparador:hover, .comparador:focus-within,
+.btn:hover, .btn:focus-visible {
+  border-color: var(--verde);
+  animation: pulsa 2.4s ease-in-out infinite;
+}
+
+/* Revelação ao rolar: só esconde quando o JavaScript está ativo. */
+.js .revelar:not(.visivel) { opacity: 0; transform: translateY(24px); }
+.revelar { transition: opacity .8s, transform .8s; }
+
+/* Cards de serviço não são clicáveis: o efeito é só de mouse, sem foco por teclado.
+   Vem depois de .revelar para a elevação usar a transição curta. */
+@media (hover: hover) {
+  .card { transition: opacity .8s, transform .25s, border-color .25s; }
+  .card:hover {
+    border-color: var(--verde);
+    transform: translateY(-4px);
+    animation: pulsa 2.4s ease-in-out infinite;
+  }
+}
+
+main > section { scroll-margin-top: var(--altura-header); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .js .revelar:not(.visivel) { opacity: 1; transform: none; }
+  .card:hover { transform: none; }
+}

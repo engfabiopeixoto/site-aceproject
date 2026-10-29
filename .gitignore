@@ -1,0 +1,9 @@
+.superpowers/
+node_modules/
+docs/superpowers/mockups/
+test-results/
+playwright-report/
+.claude/
+.impeccable/
+scripts/fontes.local.json
+docs/

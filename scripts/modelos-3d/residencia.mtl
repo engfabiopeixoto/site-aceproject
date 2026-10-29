@@ -1,0 +1,15 @@
+newmtl agua_fria
+Kd 0.10 0.45 0.95
+
+newmtl sanitario
+Kd 0.62 0.30 0.20
+
+newmtl outro
+Kd 0.20 0.75 0.55
+
+newmtl pecas
+Kd 0.95 0.95 0.95
+
+newmtl casa
+Kd 0.70 0.72 0.75
+d 0.07
