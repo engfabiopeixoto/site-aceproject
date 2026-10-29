@@ -43,7 +43,7 @@ test('carrossel do topo não anuncia legenda sozinho e pausa sob o mouse', async
   await expect(page.locator('.legenda')).not.toHaveAttribute('aria-live', /.+/);
   await page.locator('#topo h1').hover();
   await page.clock.runFor(13000);
-  await expect(page.locator('.legenda')).toContainText('Curralinhos');
+  await expect(page.locator('.legenda')).toContainText('quadra');
 });
 
 /**

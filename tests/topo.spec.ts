@@ -8,14 +8,14 @@ test('botão do topo abre o WhatsApp com a mensagem', async ({ page }) => {
   expect(u.searchParams.get('text')).toBe('Olá, ACE Project! Vim pelo site e gostaria de um orçamento.');
 });
 
-test('carrossel abre no Curralinhos e troca para o Demerval a cada 6 s', async ({ page }) => {
+test('carrossel abre na quadra e troca para o Curralinhos a cada 6 s', async ({ page }) => {
   await page.clock.install();
   await page.goto('/');
-  await expect(page.locator('.slide.ativo img')).toHaveAttribute('alt', /Curralinhos/);
-  await expect(page.locator('.legenda')).toContainText('Curralinhos');
+  await expect(page.locator('.slide.ativo img')).toHaveAttribute('alt', /quadra/);
+  await expect(page.locator('.legenda')).toContainText('quadra');
   await page.clock.runFor(6000);
   await expect(page.locator('.slide.ativo')).toHaveCount(1);
-  await expect(page.locator('.legenda')).toContainText('Demerval');
+  await expect(page.locator('.legenda')).toContainText('Curralinhos');
 });
 
 test('cada slide usa o enquadramento de data-foco', async ({ page }) => {
@@ -38,7 +38,7 @@ test('pontos têm área de toque de 44 px e marcam o atual', async ({ page }) =>
   await pontos.nth(1).click();
   await expect(pontos.nth(1)).toHaveAttribute('aria-current', 'true');
   await expect(pontos.nth(0)).not.toHaveAttribute('aria-current', /.*/);
-  await expect(page.locator('.legenda')).toContainText('Demerval');
+  await expect(page.locator('.legenda')).toContainText('Curralinhos');
 });
 
 test('legenda do topo é legível', async ({ page, isMobile }) => {

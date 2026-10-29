@@ -62,7 +62,7 @@ test.describe('movimento reduzido', () => {
     await page.goto('/#servicos');
     await expect(page.locator('header a.ativo')).toHaveCSS('animation-name', 'none');
     await page.clock.runFor(13000);
-    await expect(page.locator('.legenda')).toContainText('Curralinhos');
+    await expect(page.locator('.legenda')).toContainText('quadra');
   });
 });
 
